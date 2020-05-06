@@ -1,14 +1,45 @@
-<form accept-charset="UTF-8" action="/users" method="POST">
-  <label for="username"> Username: </label>
-    <input type="text" name="user[username]" size="40" placeholder="not more than 15 characters"><br />
+# Rails automatically take care of the authenticity_token
+<%= form_tag  '/users', method: :post do %>
 
-  <label for="email"> E-mail: </label>
-    <input type="text" name="user[email]" size="40" placeholder="not more than 200 characters"><br />
+      <%= label_tag :username %>
+      <%= text_field_tag :username %><br /><br />
 
-  <label for="password"> Password: </label>
-    <input type="password" name="user[password]" size="40" placeholder="not more than 10 characters" >
+      <%= label_tag :email %>
+      <%= text_field_tag :email %><br /><br />
 
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" > <br />
-    <input type="submit" name="submit" value="Submit">
+      <%= label_tag :password %>
+      <%= text_field_tag :password %><br /><br />
 
-</form>
+     <%= submit_tag 'Submit' %>
+
+<% end %>
+
+
+
+<!--
+  # authenticity_token must be included using this HTML format.
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>HTML Form</title>
+  </head>
+  <body>
+    <form accept-charset="UTF-8" action="/users" method="POST" >
+      <label for="username"> Username: </label>
+        <input type="text" name="user[username]" size="40" placeholder="not more than 15 characters"><br />
+
+      <label for="email"> E-mail: </label>
+        <input type="text" name="user[email]" size="40" placeholder="not more than 200 characters"><br />
+
+      <label for="password"> Password: </label>
+        <input type="password" name="user[password]" size="40" placeholder="not more than 10 characters" >
+
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" > <br />
+        <input type="submit" name="submit" value="Submit">
+
+    </form>
+
+  </body>
+</html>
+-->
