@@ -1,6 +1,8 @@
 <h1> Edit page </h1>
 <%= form_for edit_user_path(@user) do |f| %>
 
+  <%= render partial: "form_errors" %>
+
   <div>
     <%= f.label :username %>
     <%= f.text_field :username, value: "#{@user.username}" %><br />

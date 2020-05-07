@@ -1,4 +1,7 @@
 <%= form_for @user do |f| %>
+
+  <%= render partial: "form_errors" %>
+
   <div>
     <%= f.label :username %>
     <%= f.text_field :username, placeholder: 'Your name here' %><br />
