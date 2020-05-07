@@ -1,6 +1,8 @@
-<h1> All registered users </h1>
+<h1 class="registered_header"> All registered users </h1>
+
 <% @users.each do |user| %>
-  <p>
+
+  <p class="reg_list">
     Username: <%= user.username %><br />
     Email: <%= user.email %><br />
     <%= link_to "Edit", edit_user_path(user) %>
